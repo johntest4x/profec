@@ -195,7 +195,7 @@ var app = angular.module("myApp", []);
 
 
 
-<table>
+<table >
 
 <tr>
 
@@ -207,7 +207,7 @@ var app = angular.module("myApp", []);
 
 
 <td style="border-top: 4px solid black;border-left: 4px solid black;border-right: 4px solid black;">
-
+<p style="width:100%;text-align:right">2. Add Product&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(clik on list)</p>
 
 
 						<iframe id="frame_id" src="viewL1" width="96%"; height="100";>
@@ -220,8 +220,8 @@ var app = angular.module("myApp", []);
    
 
 <td style="border-top: 4px solid red;border-left: 4px solid red;border-right: 4px solid red;border-bottom: 4px solid red;">
-New Product
-    <div class="form-group">
+<p style="width:100%;text-align:center">1. Add Product Type</p>
+<div class="form-group">
         <label class="col-md-2 control-label">new name</label>
             <div class="col-md-4">
                 <input type="text" class="form-control" name="pnme"
@@ -308,23 +308,25 @@ New Product
 
 <tr>    
 
- <td>  
+ <td  style="border-top: 4px solid black;border-left: 4px solid black;border-right: 4px solid black;">  
+ <p style="width:100%;text-align:right">3. Add Product Order &nbsp;&nbsp;&nbsp;(click on list)</p>
  <table>
-<tr>
-<td>
+     <tr>
+           <td>
 						<iframe id="frame_id2" src="viewL2" width="100%"; height="100";>
    
    						</iframe>
-</td>
-<td>
+           </td>
+         <td  >
 </table>
+
 </tr>
 </td>
 
 <tr>
 
 
-<td>
+<td style="border-bottom: 4px solid black;border-left: 4px solid black;border-right: 4px solid black;">
 
 <div class="form-group">
           <label class="col-md-2 control-label">Product Code</label>

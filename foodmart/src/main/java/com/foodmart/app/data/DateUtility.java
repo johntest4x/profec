@@ -107,10 +107,7 @@ private String[] getDatePieces(String date,String duration) {
 		String[] pieces = startdate.split("\\s") ;
 		String[] time = pieces[4].split(":");
 		
-		System.out.println("-------x-------->>Peices: "+pieces[0]+"   "+pieces[1]+"   "+pieces[2]+"   "+pieces[3] +"   "+pieces[4]+"   "+pieces[5]+"   "+pieces[6]);
-		System.out.println("--------------->>time: "+time[0]+"   "+time[1]+"   "+time[2]);
-		
-		//calculate date for end water service
+	
 		int HOUR_OF_DAY =Integer.parseInt(time[0].trim());
 		if(duration!=null) {
 			if(!duration.equals(""))
@@ -124,27 +121,21 @@ private String[] getDatePieces(String date,String duration) {
 		int hod =HOUR_OF_DAY;
 		int min =Integer.parseInt(time[1].trim()); 
 
-		System.out.println("================>>>>aftersplit: "+"year: "+year+"month: "+month+"dom: "+dom+"dow: "+dow+"hod: "+hod+"min: "+min);
+
 	
 		
 		Calendar calendar = Calendar.getInstance();
 		//calendar.setTimeZone(TimeZone.getTimeZone(pieces[5].trim() + pieces[6].trim())); 
-		calendar.set(Calendar.YEAR, year);//Integer.parseInt(pieces[3].trim()));
-		calendar.set(Calendar.MONTH, month);//getMonthForName(pieces[1].trim()) );
-		calendar.set(Calendar.DAY_OF_MONTH,dom);// Integer.parseInt(pieces[2].trim()) );
-		calendar.set(Calendar.DAY_OF_WEEK, dow);//getDayForName(pieces[0].trim()) );
+		calendar.set(Calendar.YEAR, year);
+		calendar.set(Calendar.MONTH, month);
+		calendar.set(Calendar.DAY_OF_MONTH,dom);
+		calendar.set(Calendar.DAY_OF_WEEK, dow);
 		calendar.set(Calendar.HOUR_OF_DAY, HOUR_OF_DAY );
-		calendar.set(Calendar.MINUTE, min);//Integer.parseInt(time[1].trim()) );
+		calendar.set(Calendar.MINUTE, min);
 		calendar.set(Calendar.SECOND, 0);
 
 		Date alarmTime = calendar.getTime();		
-		
-	  System.out.println(" tolocalstr: "+alarmTime.toLocaleString());
-	  System.out.println(" toGMTStr: "+alarmTime.toGMTString());
-	  System.out.println(" toUTCStr: "+alarmTime.UTC(alarmTime.getYear(), alarmTime.getMonth(),alarmTime.getDate(), alarmTime.getHours(), alarmTime.getMinutes(), alarmTime.getSeconds()));
 
-	  System.out.println(" tolocalstr: "+alarmTime);
-	  
 		return alarmTime;
 		
 	}
