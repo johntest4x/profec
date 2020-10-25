@@ -1,0 +1,556 @@
+
+
+
+String qcategory=" t.category = ANY('{" +category+ "}')";
+Select t.price from Porder t  WHERE   t.category = ANY('{BUY,SELL}');
+
+https://www.objectdb.com/java/jpa/query/jpql/collection
+
+
+
+
+
+	getDate to private in Entity? override DAO?
+
+
+
+
+
+
+
+
+
+======================================================================
+		
+		public List<Porder> findPorder2(Product product, String category, String odateTxt, Date date, BigDecimal price, Long quantity) {
+
+			Query query2=null;
+			
+			
+			CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+			CriteriaQuery<Porder> criteriaQuery = criteriaBuilder.createQuery(Porder.class);
+			Root<Porder> itemRoot = criteriaQuery.from(Porder.class);
+			
+			String [] cats= {"SELL", "BUY","AAA"};
+			criteriaQuery.select(itemRoot).where(itemRoot.get("category").in(   cats   ));
+			
+			TypedQuery<Porder> typedQuery = em.createQuery(criteriaQuery);
+			 List<Porder> list = typedQuery.getResultList();
+======================================================================			 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		public List<Porder> findPorder2(Product product, String category, String odateTxt, Date date, BigDecimal price, Long quantity) {
+
+			Query query2=null;
+			
+			
+			CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+			CriteriaQuery<Porder> criteriaQuery = criteriaBuilder.createQuery(Porder.class);
+			Root<Porder> itemRoot = criteriaQuery.from(Porder.class);
+			
+			String [] cats= {"SELL", "BUY","AAA"};
+			criteriaQuery.select(itemRoot).where(itemRoot.get("category").in(   cats   ));
+			
+			TypedQuery<Porder> typedQuery = em.createQuery(criteriaQuery);
+			 List<Porder> list = typedQuery.getResultList();
+			
+			 
+			 Expression<String> param = criteriaBuilder.parameter(String.class);
+			 Predicate i1 = param.in(cats);
+
+			 Predicate i2= criteriaBuilder.equal(itemRoot.get("price"), price);
+				
+				 
+				 
+				 
+Predicate finalPredicate = criteriaBuilder.and(i1, i2);
+criteriaQuery.where(finalPredicate);
+									
+				
+				
+//				
+//				List<Porder> list = em.createQuery(criteriaQuery).getResultList();
+			 
+//			
+//			Predicate predicateForProduct
+//			  = criteriaBuilder.equal(itemRoot.get("product"), product);
+//			Predicate predicateForprice
+//			  = criteriaBuilder.equal(itemRoot.get("price"), price);
+//			Predicate predicateForQty
+//			  = criteriaBuilder.equal(itemRoot.get("qty"), quantity);
+//			Predicate predicateForCategory
+//			  = criteriaBuilder.equal(itemRoot.get("category"), category);
+//			
+//			Predicate finalPredicate = criteriaBuilder.and(predicateForProduct, predicateForprice,predicateForQty,predicateForCategory);
+//			criteriaQuery.where(finalPredicate);
+//			
+//			List<Porder> list = em.createQuery(criteriaQuery).getResultList();
+
+			return list;
+		}
+		
+		
+		public List<Porder> findPorder(Product product, String category, String odateTxt, Date date, BigDecimal price, Long quantity) {
+
+			if(1==1)
+			 return findPorder2( product,  category,  odateTxt,  date,  price,  quantity);
+			
+			
+			Query query2=null;
+			
+			System.out.print( product+  category +odateTxt+ date+ price+  quantity);
+			
+			//--------------------------------construct querystring
+			String query="";
+			String Querypart="";
+			
+			String where= " WHERE ";
+			String and=" AND ";
+			String q1="";
+			String q2="";
+			String q3="";
+			String q4="";
+			
+			String qproduct=" t.product = :product";
+			String qprice=" t.price = :price";
+			String qquantity=" t.qty = :quantity";
+			String qcategory=" t.category = :category";
+
+
+			query="Select t from Porder t ";
+			
+			if(product!=null) {
+				q1=qproduct;		
+				Querypart+=q1;
+			}else{
+				and="";
+				Querypart+=q1;
+			};
+			
+			
+						
+			if(price!=null) {
+				q2=	qprice;		
+				Querypart+=and+q2;
+			}else{
+				and="";
+				Querypart+=and+q2;
+				and=" AND ";
+			};
+
+			if(quantity!=null) {
+				q3=	qquantity;	
+				Querypart+=and+q3;
+			}else{
+				and="";
+				Querypart+=and+q3;
+				and=" AND ";
+			};
+			
+
+			if(category!=null) {
+				q4=	qcategory;	
+				Querypart+=and+q4;
+			}else{
+				and="";
+				Querypart+=and+q4;
+				
+			};
+			
+			
+			
+			if(product ==null && category ==null && price ==null && quantity==null) {
+				where="";
+				System.out.println("set where to blank??");
+			}
+						
+			
+			query =  query+where+Querypart;
+			
+			
+		//	query="Select t from Porder t "+where+q1+and+q2+and+q3+and+q4;
+			System.out.println(query);
+			query2 = em.createQuery( query ); 
+			
+			
+			//---------------------------------------------set params
+			if(product!=null) {
+				query2.setParameter("product",product );				
+			}			
+			
+			if(price!=null) {
+				query2.setParameter("price",price);
+			}
+			
+			if(quantity!=null) {
+				query2.setParameter("qty",quantity);
+			}
+			
+			if(category!=null) {
+				query2.setParameter("category",category);
+			}
+
+ 
+	        List<Porder> list =query2.getResultList();  
+	        
+	        
+	        /*    //use calender to query range
+	         *    getDateRange()
+	         * 
+	         * 
+	         */
+
+	        if(list!=null) {
+		    	if(!list.isEmpty()) {
+		    		
+		    		System.out.print("yyyyyyyyyyyyyyyy");
+		    		System.out.print("Price"+list.get(0).getPrice());
+		    	}
+		    }else {System.out.print("xxxxxxxxxxxx");}
+			
+			
+			
+			return list;
+		}
+		
+		
+		
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////
+
+
+		public PorderDAO(Product product, String category, String odateTxt, Date date, BigDecimal price, Long quantity) {
+			super(product, category, odateTxt, date, price, quantity);
+			
+		}
+
+		
+		public Porder createPorder(Product product, String category, String odateTxt, Date date, BigDecimal price, Long quantity) {
+			
+			System.out.print("bbbbbbbbbbbbbbbbbbbbbbbbbb"+product.getCode()+category+odateTxt+date.toGMTString()+price+quantity);
+			 Porder porder = new PorderDAO( product,  category,  odateTxt,  date,  price,  new Long(90));
+			 em.persist(porder);
+			 
+			return porder;
+		}
+		
+		   public PorderDAO testrFind() {
+			   
+			   
+			   PorderDAO pd = (PorderDAO) em.find(Porder.class,1);
+			   
+			   pd.setPrice(new BigDecimal(Long.getLong("30.30")));
+		       return pd;
+		   }
+
+		Porder getPOrdersAll(){
+	
+			return null;
+		}
+	
+		
+		/*
+		 *   Generic find, any fields
+		 * 
+		 *   TODO: query object!
+		 * 
+		 */
+		public List<Porder> findPOrders(String[] criteria,Product pr,IQuery q){
+			
+			 
+			
+			//String pcode=criteria[0];
+
+			Product p=pr;
+			Query query2=null;
+			
+			if(p!=null) {
+				query2 = em.createQuery("Select t from Porder t where t.product = :pcode and t.price = :price"    );  //works as bidir relation is setup
+
+				
+		    }else {
+				query2 = em.createQuery("Select t from Porder t where t.product = :pcode"    ); 
+		    }
+			
+	        query2.setParameter("pcode",pr/* "placeholder"*/);
+	        query2.setParameter("price",criteria[0]/* "placeholder"*/);
+	        query2.setParameter("price",((PorderQuery)q).getCost()/* "placeholder"*/);
+	        
+	        
+	        
+	        
+	        
+	        @SuppressWarnings("unchecked")  
+	        List<Porder> list =query2.getResultList();  
+
+	        if(list!=null) {
+		    	if(!list.isEmpty()) {
+		    		
+		    		System.out.print("yyyyyyyyyyyyyyyy");
+		    		System.out.print("Price"+list.get(0).getPrice());
+		    	}
+		    }else {System.out.print("xxxxxxxxxxxx");}
+			
+			return list;
+		}
+	
+	
+
+//
+//		Porder addPOrder(){
+//
+//			return null;
+//		}
+//		
+//		Porder deletePOrder(){
+//
+//			return null;
+//		}
+//		
+//		
+//		
+//		Porder updatePOrder(Porder po,String CriteriaToChange, String changeValue){
+//
+//
+//			return null;
+//		}
+
+
+
+
+
+
+
+===============================================WORKS
+
+
+	public List<Porder> findPorder2(Product product, String category, String odateTxt, Date date, BigDecimal price, Long quantity) {
+
+			Query query2=null;
+			
+			String [] cats= {"SELL", "BUY","AAA"};
+			
+			Product pa = em.find(Product.class, 0);
+			Product pb = em.find(Product.class, 1);
+			Product pc = em.find(Product.class, 2);
+			Product pd = em.find(Product.class, 3);
+			Product pe = em.find(Product.class, 4);
+			
+			List<Product> prods = new ArrayList<Product>(Arrays.asList(pa,pb,pc,pd));
+			
+			
+			
+			CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+			CriteriaQuery<Porder> criteriaQuery = criteriaBuilder.createQuery(Porder.class);
+			Root<Porder> itemRoot = criteriaQuery.from(Porder.class);
+			
+			
+			
+			//criteriaQuery.select(itemRoot).where(itemRoot.get("category").in(   cats   ));			
+			//TypedQuery<Porder> typedQuery = em.createQuery(criteriaQuery);
+			 //List<Porder> list = typedQuery.getResultList();
+			
+			 
+			 //Expression<String> param = criteriaBuilder.parameter(String.class);
+			 //Predicate i1 = param.in(cats);
+			 
+			 
+			 Expression<String> parentExpression = itemRoot.get("category"); 
+			 Predicate i1 = parentExpression.in(cats);
+			 
+
+			 Predicate i2= criteriaBuilder.equal(itemRoot.get("price"), price);
+				
+			
+			 
+			 ParameterExpression<Collection> parentExpression2 = criteriaBuilder.parameter(Collection.class); 
+			 
+			 Predicate i3 = parentExpression2.in(prods);
+			// Predicate i3= CriteriaBuilder.equal(itemRoot.get("product"), pd);
+			 
+			 
+			// ParameterExpression<Collection> productsExpression = criteriaBuilder.parameter(Porder.Product);
+			 //Predicate i3 = productsExpression.in(cats);
+			 
+			 
+				 
+				 
+Predicate finalPredicate = criteriaBuilder.and(i3,i1, i2);
+criteriaQuery.where(finalPredicate);
+									
+List<Porder> list = em.createQuery(criteriaQuery).getResultList();
+				
+//				
+//				List<Porder> list = em.createQuery(criteriaQuery).getResultList();
+			 
+//			
+
+
+------------------------------------------------fail
+
+	 Expression<String> parentExpression = itemRoot.get("category"); 
+			 Predicate i1 = parentExpression.in(cats);
+			 
+
+			 Predicate i2= criteriaBuilder.equal(itemRoot.get("price"), price);
+				
+			
+			 
+			 ParameterExpression<Collection> parentExpression2 = criteriaBuilder.parameter(Collection.class); 
+			 
+			 Predicate i3 = parentExpression2.in(prods);
+			// Predicate i3= CriteriaBuilder.equal(itemRoot.get("product"), pd);
+			 
+			 
+			// ParameterExpression<Collection> productsExpression = criteriaBuilder.parameter(Porder.Product);
+			 //Predicate i3 = productsExpression.in(cats);
+			 
+			 
+criteriaQuery.select(itemRoot).where(itemRoot.get("product").in(parentExpression2));				 
+				 
+Predicate finalPredicate = criteriaBuilder.and(i3,i1, i2);
+criteriaQuery.where(finalPredicate);
+
+
+TypedQuery<Porder> typedQuery = em.createQuery(criteriaQuery);
+typedQuery.setParameter(parentExpression2,prods);
+List<Porder> list = typedQuery.getResultList();		
+
+
+
+
+
+
+
+
+
+
+
+
+//--------------------------GOOD
+https://www.codota.com/code/java/methods/javax.persistence.criteria.CriteriaBuilder/and
+
+			criteriaQuery
+		    .where(criteriaBuilder.and(
+		    		criteriaBuilder.equal(itemRoot.get("product"), pd),
+		    		criteriaBuilder.equal(itemRoot.get("category").get("contactNumber"), contactNumber)
+		    ));
+
+
+ EntityManager em = JPA.em();
+CriteriaBuilder cb = em.getCriteriaBuilder();
+CriteriaQuery<T> criteriaQuery = cb.createQuery(News.class);
+Root<T> root = criteriaQuery.from(News.class);
+criteriaQuery.select(root);
+
+List<Predicate> ps = new ArrayList<Predicate>();
+ps.add(sb.equal(root.get("link", url));
+ps.add(sb.equal(root.get("name", "joe"));
+
+criteriaQuery.where(cb.and(ps.toArray(new Predicate[0])));
+
+List<News> resultUrl = em.createQuery(criteriaQuery).getResultList();
+origin: org.j
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
