@@ -36,7 +36,7 @@ import org.mockito.MockitoAnnotations;
 import com.foodmart.app.FoodmartApplication;
 import com.foodmart.app.data.Entity.Product;
 import com.foodmart.app.data.Entity.Ptype;
-import com.foodmart.app.web.FmartController;
+import com.foodmart.app.web.FmarController;
 
 //@SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
 
@@ -52,7 +52,7 @@ public class FoodmartApplicationTests  {
 	private MockMvc mvc;
 	
 	 @InjectMocks
-	    private FmartController gc;
+	    private FmarController gc;
 
 	 @BeforeEach
 	    public void setup() {
