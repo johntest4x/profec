@@ -1,4 +1,4 @@
-# <a href = https://drive.google.com/file/d/1bOhpdAuxuBTLY-dEhuyHjIRCHcmixrVf/view?usp=sharing> applic download (~93M) </a>
+#pplic download (~93M)  -    https://drive.google.com/file/d/1bOhpdAuxuBTLY-dEhuyHjIRCHcmixrVf/view?usp=sharing 
 sample application:
 
 
