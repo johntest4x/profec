@@ -5,8 +5,8 @@ sample application:																							.
 .																												.   
 .																												.  
 .																												.  
-Run the application:                                                                            .  
-java - jar {applicationname}.war                    													.
+Run the application:                                                                            .    
+java - jar {applicationname}.war                    													.  
 Ctr^C to stop                                                                                   .    
 .																												.  
 .																												.  
@@ -20,22 +20,22 @@ eclipse:mvn  package spring-boot:repackage                                      
 Dependencies:																								   .    
 Tomcat embedded																								.
 Postgress embedded																						        
-  
-  
+  .																												.  
+  .																												.  
 User Instruction:   
-  
-  
-Setup test:-----------------  
-goto http://localhost:8080/  
-select link 'load data(Tests)'    
-select link '$ calculations'  
-    price: greaterthan 0, end date time: 'today'  
-    
-    
+  .																												.   
+  .																												.   
+Setup test:-----------------   																			.  
+goto http://localhost:8080/   																				.  
+select link 'load data(Tests)'     																		.  
+select link '$ calculations'   																			.  
+    price: greaterthan 0, end date time: 'today'   														.  
+.																										       .   
+.																										       .   
 OR        
-  
-Manual:----------------------    
-    
+.																										       .     
+Manual:----------------------    .													                     .   
+.																										       .       
 restart application (    java - jar {applicationname}.war )  
 goto http://localhost:8080/  
 1) Add product types:     
