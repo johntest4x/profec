@@ -1,4 +1,31 @@
-# applic download(~93M) https://drive.google.com/file/d/1g-Ebj1Kh7dh2lAN12xe20PyIkb9GjwQ7/view?usp=sharing
+# https://drive.google.com/file/d/1APn6uD_3By4AEqkOPQp-dkrj2txGJunD/view?usp=sharing   applic download(~60M)     https://drive.google.com/file/d/1k3V1VZmwWplPL-EsnRPStSai5uSkFtey/view?usp=sharing     VisC-2013 redistr
+
+********************************************************************
+Update:                                                            *
+New application link (~60M) more recent lighter postgress          * 
+New link to VC2-013 redistr package (resolves MFC classes issues)  *
+********************************************************************
+
+
+There is Issue installing pg-embedded some versions windows (see):  
+
+https://github.com/opentable/otj-pg-embedded------ 
+If you experience difficulty running otj-pg-embedded tests on Windows, make sure you've installed the appropriate MFC redistributables.
+
+Microsoft Site
+Github issue discussing this  https://github.com/opentable/otj-pg-embedded/issues/65 
+---------------------------------------------------    
+
+
+Resolution:
+https://support.microsoft.com/en-us/help/4032938/update-for-visual-c-2013-redistributable-package  
+  
+English - United States     https://aka.ms/highdpimfc2013x64enu  <<-----------download this or use the supplied download   
+
+
+
+
+
 																												.   
 																												.  
 sample application:																							.   
