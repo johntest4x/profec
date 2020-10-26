@@ -1,4 +1,4 @@
-# applic download(~93M) https://drive.google.com/file/d/1bOhpdAuxuBTLY-dEhuyHjIRCHcmixrVf/view?usp=sharing 
+# applic download(~93M) https://drive.google.com/file/d/1g-Ebj1Kh7dh2lAN12xe20PyIkb9GjwQ7/view?usp=sharing
 																												.   
 																												.  
 sample application:																							.   
