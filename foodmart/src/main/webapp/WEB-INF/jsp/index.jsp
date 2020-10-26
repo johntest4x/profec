@@ -207,7 +207,7 @@ var app = angular.module("myApp", []);
 
 
 <td style="border-top: 4px solid black;border-left: 4px solid black;border-right: 4px solid black;">
-<p style="width:100%;text-align:right">2. Add Product&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(clik on list)</p>
+<p style="width:100%;text-align:right">2. Add Product&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="color:red">(clik on list)</a></p>
 
 
 						<iframe id="frame_id" src="viewL1" width="96%"; height="100";>
@@ -245,8 +245,8 @@ var app = angular.module("myApp", []);
     
  <td style="width: 500px;">
      
-     <a style="width: 496px;text-align:right;valign:center; height: 198px"  href="testapi2/a" target="_blank"><h2>Load Data (Tests)</h2></h3></a>
-     <a style="width: 496px;text-align:right;valign:center; height: 198px"  href="calculations" target="_blank"><h2>calculations</h2></h3></a>
+     <a style="width: 496px;text-align:right;valign:center; height: 198px"  href="testapi2/a" target="_blank"><h2>load data (Tests)</h2></h3></a>
+     <a style="width: 496px;text-align:right;valign:center; height: 198px"  href="calculations" target="_blank"><h2>$ calculations</h2></h3></a>
      
      </td>
 
@@ -309,7 +309,7 @@ var app = angular.module("myApp", []);
 <tr>    
 
  <td  style="border-top: 4px solid black;border-left: 4px solid black;border-right: 4px solid black;">  
- <p style="width:100%;text-align:right">3. Add Product Order &nbsp;&nbsp;&nbsp;(click on list)</p>
+ <p style="width:100%;text-align:right">3. Add Product Order &nbsp;&nbsp;&nbsp;<a style="color:red">(click on list)</a></p>
  <table>
      <tr>
            <td>

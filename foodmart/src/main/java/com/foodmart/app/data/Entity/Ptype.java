@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -78,17 +79,9 @@ public class Ptype extends BaseType implements java.io.Serializable,IEntity{
 
 	
 	
-//	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-//    @JoinColumn(name = "product_id",unique = true)
-//	private Product product;
-//	public Product getProduct() {
-//		return this.product;
-//	}
-//	public void setProduct(Product product) {
-//		this.product = product;
-//	}
-	
 
+	
+	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "product_id",unique = true, nullable = false,referencedColumnName = "product_id")
 	private Product product;
 	public Product getProduct() {

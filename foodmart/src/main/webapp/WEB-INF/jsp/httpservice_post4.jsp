@@ -60,14 +60,14 @@ app.controller('myCtrl', function($scope, $http) {
           var cells = target.getElementsByTagName("td");
           for (var i = 0; i < cells.length; i++) {
               //data.push(cells[i].innerHTML);
-              cells[i].style.color='green';
+              cells[i].style.color='blue';
           }
 
           
       }
 
       parent.document.getElementById('cid').value = cells[2].innerHTML;
-      parent.document.getElementById('cid').style.color = "green";
+      parent.document.getElementById('cid').style.color = "blue";
   };
 
   

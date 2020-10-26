@@ -87,20 +87,15 @@ var app = angular.module("myApp", []);
     app.controller("myCtrl", function($scope,$http) {
 
 
-    	 //$scope.orders = ["Order", "Purchase"];
     	  $scope.startdate = {
     	         value: new Date(2020, 01, 01, 00, 00)
     	       };
     	 
-	      $scope.myTxt = "Place your water order";
+	      $scope.myTxt = "";
 	     
           $scope.addRow = function () {
 
 
-			//if(document.getElementById("faid").value ===""){
-			//	$scope.fid=0;
-			//	alert("error insode faid?");
-			//	}
             
             var data;
             var sendto;
@@ -113,7 +108,7 @@ var app = angular.module("myApp", []);
                  data = '&comparectyp=' + $scope.comparectyp+ '&catg=' + $scope.catg + '&code=' + $scope.code + '&compare=' + $scope.compare+   '&price=' + $scope.price  +'&startdate=' + $scope.startdate.value     +'&enddate=' + $scope.enddate.value;
                  sendto = 'calc';
                  retmsg = 'Product Type Successfully Added';
-                 alert("1$scope.fid:"+$scope.fid);
+                
            
            
            // $scope.myTxt = "You clicked submit!s";		
@@ -275,7 +270,7 @@ align:left
      
      <Table>
      <tr>
-     <td>  <label >price</label> 
+     <td>  <label >price</label>
      </td>
      </tr>
      
@@ -294,15 +289,15 @@ align:left
   				 </div>
      	</div>
 </td>
-<td>
+<td style="width: 362px; ">
         
-          <div class="form-group">
+          <div class="form-group" style="width: 282px; ">
           <label class="col-md-2 control-label"> </label>
              <div class="col-md-4">
                  <input type="text" class="form-control" name="price"    style="margin:0px 0 0; width:70px;"
-                  ng-model="price" />
+                  ng-model="price" />  <a style="color:red">(manditory) '> 0 for any'</a>
              </div>
-     </div>
+     </div>   
      
      </td>
      

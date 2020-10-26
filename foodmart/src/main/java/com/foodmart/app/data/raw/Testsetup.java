@@ -138,6 +138,7 @@ public class Testsetup {
 		o1.setPrice(new BigDecimal((long) 50.00));
 		o1.setQty((long) 300);
 		o1.setOdate(setDateAsAppStyle("02-04-2020 11:35:00"));
+		o1.setOdatetxt("2/4/20, 11:35 am");
 		o1.setProduct(p1a);
 		em.persist(o1);
 		
@@ -146,6 +147,7 @@ public class Testsetup {
 		o2.setPrice(new BigDecimal((long) 60.00));
 		o2.setQty((long) 100);
 		o2.setOdate(setDateAsAppStyle("04-04-2020 11:35:00"));
+		o2.setOdatetxt("4/4/20, 11:35 am");
 		o2.setProduct(p1a);
 		em.persist(o2);
 		
@@ -154,6 +156,7 @@ public class Testsetup {
 		o3.setPrice(new BigDecimal((long) 60.00));
 		o3.setQty((long) 100);
 		o3.setOdate(setDateAsAppStyle("05-04-2020 11:35:00"));
+		o3.setOdatetxt("5/4/20, 11:35 am");
 		o3.setProduct(p1a);
 		em.persist(o3);
 		
@@ -165,6 +168,7 @@ public class Testsetup {
 		o4.setPrice(new BigDecimal((long) 50.00));
 		o4.setQty((long) 300);
 		o4.setOdate(setDateAsAppStyle("02-04-2020 11:35:00"));
+		o4.setOdatetxt("2/4/20, 11:35 am");
 		o4.setProduct(p1b);
 		em.persist(o4);
 		
@@ -173,6 +177,7 @@ public class Testsetup {
 		o5.setPrice(new BigDecimal((long) 50.00));
 		o5.setQty((long) 300);
 		o5.setOdate(setDateAsAppStyle("02-04-2020 11:35:00"));
+		o5.setOdatetxt("2/4/20, 11:35 am");
 		o5.setProduct(p1c);
 		em.persist(o5);
 		
